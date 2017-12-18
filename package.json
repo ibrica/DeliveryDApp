@@ -1,11 +1,12 @@
 {
   "name": "deliverydapp",
   "version": "0.0.1",
-  "description": "Smart contract example with truffle",
+  "description": "Smart contract example",
   "scripts": {
     "lint": "eslint ./",
     "build": "webpack",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "test": "truffle test"
   },
   "author": "Ivan Britvić",
   "license": "MIT",

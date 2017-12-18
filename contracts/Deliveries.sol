@@ -31,8 +31,8 @@ contract Deliveries {
 	
 	//Sent and recieved packages per user
 	//Package's info is accesed through function
-	mapping (address => Package[]) sentPackages; 
-	mapping (address => Package[]) receivedPackages; //Doesn't mean that delivery is successfull
+	mapping (address => uint[]) sentPackages; 
+	mapping (address => uint[]) receivedPackages; //Doesn't mean that delivery is successfull
 
 	// Events
     event PackageCreated(	uint id, 
@@ -81,9 +81,9 @@ contract Deliveries {
 		p.status = DeliveryStatus.InProgress;
 		p.sentTimestamp = now;
 		//Add to sent packages
-		sentPackages[p.sender].push(p);
+		sentPackages[p.sender].push(packageId);
 		//Add to sent to (recieved) packages
-		receivedPackages[p.receiver].push(p);
+		receivedPackages[p.receiver].push(packageId);
 		//Fire event
 		PackageCreated(packageId, p.sender, p.receiver, p.pickupStreetAddress, p.deliverStreetAddress, value);
 
@@ -129,14 +129,14 @@ contract Deliveries {
 	/** 
 	* Return all packages sent from given address
  	*/
-	function getSentPackages(address addr) constant returns (Package[]) {  //Experimental feature returning array of structs
+	function getSentPackages(address addr) constant returns (uint[]) {  //return array of structs  still not working
 		return sentPackages[addr];
 	}
 
 	/** 
 	* Return all packages recieved on given address
  	*/
-	function getReceivedPackages(address addr) constant returns (Package[]) { //Experimental feature returning array of structs
+	function getReceivedPackages(address addr) constant returns (uint[]) { // returns (Package[])Experimental feature returning array of structs still not working
 
 		return receivedPackages[addr];
 	}

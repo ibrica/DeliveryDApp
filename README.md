@@ -13,11 +13,6 @@ Install Truffle globally.
 > npm install -g truffle
 ```
 
-Download the box. This also takes care of installing the necessary dependencies.
-```
-> unbox webpack
-```
-
 Compile and migrate the smart contracts. Default setup is for local network (e.g. [testrpc](https://www.npmjs.com/package/ethereumjs-testrpc)) to change edit truffle.js.
 ```
 > truffle compile
@@ -32,5 +27,5 @@ Run the webpack server for front-end hot reloading.
 
 Run tests.
 ```
-> truffle test
+> npm test
 ```

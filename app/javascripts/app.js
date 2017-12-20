@@ -11,7 +11,6 @@ import deliveries_artifacts from '../../build/contracts/Deliveries.json'
 //Create truffle contract abstraction
 let Deliveries = contract(deliveries_artifacts);
 
-
 var accounts, account;
 var deliveries, sentPackages, receivedPackages;
 
